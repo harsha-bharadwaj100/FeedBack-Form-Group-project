@@ -76,14 +76,33 @@
         .rate>label:hover~input:checked~label {
             color: #135a17;
         }
+        *,
+        *:before,
+        *:after{
+            box-sizing: border-box;
+        }
+        input[type="date"]{
+            background-color: #0080ff;
+            padding: 7px;
+            color: rgb(255, 255, 255);
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+        ::-webkit-calendar-picker-indicator{
+            background-color: rgb(255, 255, 255);
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
     </style>
 </head>
 <script>
     let rating = NaN;
 </script>
-<body style="background-image: linear-gradient(rgb(235, 178, 235), rgb(138, 138, 236));">
+<body style="background-image: linear-gradient(rgb(235, 178, 235), rgb(138, 138, 236)); min-height: 100vh; margin-top:0;">
     <center>
-        <h1>Feedback Form</h1>
+        <h1 style="margin: 0;padding-top: 4%;">Feedback Form</h1>
     </center>
     <div style="display: flexbox;  margin:5% 20% 5% 20%;">
         <!--Add few elements to the form-->
