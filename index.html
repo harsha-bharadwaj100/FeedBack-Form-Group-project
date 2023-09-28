@@ -1,29 +1,91 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <style>
-        * { box-sizing: border-box; }
-        div {
-            padding: 10px;
-            background-color: #f6f6f6;
-            overflow: hidden;
+        * {
+            box-sizing: border-box;
         }
-        input[type=text], textarea, select {
+
+        div {
+            padding: 1.18%;
+            background: rgba(241, 183, 248, 0.1);
+            
+        }
+
+        input[type=text],
+        textarea,
+        select {
             width: 100%;
             padding: 12px;
             border: 1px solid #ccc;
-            border-radius: 4px;
         }
-        input[type=button]{ 
+
+        input[type=text]:focus,
+        textarea:focus,
+        select:focus {
+            box-shadow: 0px 0px 8px 2px #888888;
+            outline-style: groove;
+        }
+
+        input[type=button] {
             width: auto;
             float: right;
             cursor: pointer;
             padding: 7px;
         }
+
+        .rate {
+            float: left;
+            height: 60;
+            padding: 5% 2%;
+        }
+
+        .rate:not(:checked)>input {
+            position: absolute;
+            top: -9999px;
+        }
+
+        .rate:not(:checked)>label {
+            float: right;
+            width: 1em;
+            overflow: hidden;
+            white-space: nowrap;
+            cursor: pointer;
+            font-size: 30px;
+            color: rgb(204, 204, 204);
+        }
+
+        .rate:not(:checked)>label:before {
+            content: '★ ';
+        }
+
+        .rate>input:checked~label {
+            color: rgb(24, 200, 21);
+        }
+
+        .rate:not(:checked)>label:hover,
+        .rate:not(:checked)>label:hover~label {
+            color: #44a122;
+        }
+
+        .rate>input:checked+label:hover,
+        .rate>input:checked+label:hover~label,
+        .rate>input:checked~label:hover,
+        .rate>input:checked~label:hover~label,
+        .rate>label:hover~input:checked~label {
+            color: #135a17;
+        }
     </style>
 </head>
-<body>
-    <div style="display: flexbox;  margin:5% 20% 0% 20%;">
+<script>
+    let rating = NaN;
+</script>
+<body style="background-image: linear-gradient(rgb(235, 178, 235), rgb(138, 138, 236));">
+    <center>
+        <h1>Feedback Form</h1>
+    </center>
+    <div style="display: flexbox;  margin:5% 20% 5% 20%;">
         <!--Add few elements to the form-->
         <div><input type="text" id="txtName" placeholder="Enter your name" /></div>
         <div><input type="text" id="txtAge" placeholder="Enter your age" /></div>
@@ -31,35 +93,49 @@
         <div><label for="date">Date:</label>
             <input type="date" id="date" name="date">
         </div>
+        <div class="rate">
+            Rate your experience
+            <br>
+            <input type="radio" id="star5" name="rate" value="5" onclick="rating = 5"/>
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" onclick="rating = 4"/>
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" onclick="rating = 3"/>
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" onclick="rating = 2"/>
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" onclick="rating = 1"/>
+            <label for="star1" title="text">1 star</label>
+        </div>
         <div>
             <textarea id="msg" name="msg" placeholder="Write some message ..." style="height:100px"></textarea>
         </div>
 
         <!--Add a button to save the data.-->
         <div>
-            <input type="button" id="bt" value="Save data to file" onclick="saveFile()" />
+            <input type="button" id="bt" value="Submit" onclick="saveFile()" />
         </div>
     </div>
 
 </body>
 <script>
     let saveFile = () => {
-    	
+
         // Get the data from each element on the form.
-    	const name = document.getElementById('txtName');
+        const name = document.getElementById('txtName');
         const age = document.getElementById('txtAge');
         const email = document.getElementById('txtEmail');
         const date = document.getElementById('date');
         const msg = document.getElementById('msg');
-        
+
         // This variable stores all the data.
-        let data = 
-            '\r Name: ' + name.value + ' \r\n ' + 
-            'Age: ' +age.value + ' \r\n ' + 
-            'Email: ' + email.value + ' \r\n ' + 
-            'date: ' + date.value + ' \r\n ' + 
+        let data =
+            '\r Name: ' + name.value + ' \r\n ' +
+            'Age: ' + age.value + ' \r\n ' +
+            'Email: ' + email.value + ' \r\n ' +
+            'date: ' + date.value + ' \r\n ' +
             'Message: ' + msg.value;
-        
+
         // Convert the text to BLOB.
         const textToBLOB = new Blob([data], { type: 'text/plain' });
         const sFileName = 'formData.txt';	   // The file to save the data.
@@ -76,7 +152,8 @@
             document.body.appendChild(newLink);
         }
 
-        newLink.click(); 
+        newLink.click();
     }
 </script>
+
 </html>
