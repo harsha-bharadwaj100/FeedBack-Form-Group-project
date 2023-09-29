@@ -1,41 +1,42 @@
-*{
-    margin: 0;
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+body {
+     background: #f1f1f1;
 }
-.rate {
-    float: left;
-    height: 46px;
-    padding: 0 10px;
+ body h1 {
+   font-family: 'Roboto Slab', serif;
+     margin: 50px 20px 40px;
+     font-size: 50px;
+     letter-spacing: 0.5px;
+     color: #999;
+     text-align: center;
 }
-.rate:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
+ .rating {
+     width: 208px;
+     height: 40px;
+     margin: 0 auto;
+     padding: 40px 50px;
+     border: 1px solid #ccc;
+     background: #f9f9f9;
 }
-.rate:not(:checked) > label {
-    float:right;
-    width:1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:30px;
-    color:#ccc;
+ .rating label {
+     float: right;
+     position: relative;
+     width: 40px;
+     height: 40px;
+     cursor: pointer;
 }
-.rate:not(:checked) > label:before {
-    content: '★ ';
+ .rating label:not(:first-of-type) {
+     padding-right: 2px;
 }
-.rate > input:checked ~ label {
-    color: #ffc700;    
+ .rating label:before {
+     content: "\2605";
+     font-size: 42px;
+     color: #ccc;
+     line-height: 1;
 }
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #deb217;  
+ .rating input {
+     display: none;
 }
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #c59b08;
+ .rating input:checked ~ label:before, .rating:not(:checked) > label:hover:before, .rating:not(:checked) > label:hover ~ label:before {
+     color: #f9df4a;
 }
-
-/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
