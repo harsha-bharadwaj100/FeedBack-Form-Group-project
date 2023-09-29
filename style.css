@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+}
+
+div {
+    padding: 1.18%;
+    background: rgba(241, 183, 248, 0.1);
+}
+
+input[type=text],
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+input[type=text]:focus,
+textarea:focus,
+select:focus {
+    box-shadow: 0px 0px 8px 2px #888888;
+    outline-style: groove;
+    outline-color: rgb(100, 81, 81);
+}
+
+input[type=button] {
+    width: auto;
+    float: right;
+    cursor: pointer;
+    padding: 7px;
+}
+
+.rate {
+    float: left;
+    height: 60;
+    padding: 5% 2%;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: rgb(204, 204, 204);
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: rgb(24, 200, 21);
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #44a122;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #135a17;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+input[type="date"] {
+    background-color: #0080ff;
+    padding: 7px;
+    color: rgb(255, 255, 255);
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+::-webkit-calendar-picker-indicator {
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}
