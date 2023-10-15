@@ -37,3 +37,21 @@ let saveFile = () => {
     newLink.click();// Click to download the form data file.
     URL.revokeObjectURL(newLink.href);// Revoke the link.
 }
+
+function saveDatabase() {
+    const name = document.getElementById('txtName');
+    const age = document.getElementById('txtAge');
+    const email = document.getElementById('txtEmail');
+    const date = document.getElementById('date');
+    const msg = document.getElementById('msg');
+    params = {"name":name.value, "age":age.value, "email":email.value, "date":date.value, "rating":Rating, "msg":msg.value}
+    // xhr.send(JSON.stringify(params));
+    fetch('http://127.0.0.1:5000/save', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params)
+    })
+    console.log("Completed!")
+}
