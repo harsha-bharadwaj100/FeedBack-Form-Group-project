@@ -10,7 +10,13 @@ class TODO(db.Model):
     name = db.Column(db.String(100), primary_key=True)
     age = db.Column(db.Integer)
     email = db.Column(db.String(100))
+    visit_frequency = db.Column(db.String(100))
+    first_learnt = db.Column(db.String(100))
+    last_purchased_product = db.Column(db.String(100))
     date = db.Column(db.String(100))
+    met_expectations = db.Column(db.String(100))
+    issues = db.Column(db.String(100))
+    reccomendability = db.Column(db.String(100))
     rating = db.Column(db.Integer)
     msg = db.Column(db.String(1000))
 
@@ -22,7 +28,18 @@ def home():
 def add():
     data = request.get_json()
     print(data)
-    newTodo = TODO(name=data['name'], age=data['age'], email=data['email'], date=data['date'], rating=data['rating'], msg=data['msg'])
+    newTodo = TODO(name=data['name'],
+                    age=data['age'],
+                    email=data['email'],
+                    visit_frequency=data['visit'],
+                    first_learnt=data['learnt'],
+                    last_purchased_product=data['product'],
+                    date=data['date'],
+                    met_expectations = data['expectations'],
+                    issues = data['issues'],
+                    reccomendability = data['reccomend'],
+                    rating=data['rating'],
+                    msg=data['msg'])
     db.session.add(newTodo)
     db.session.commit()
     return "hi"

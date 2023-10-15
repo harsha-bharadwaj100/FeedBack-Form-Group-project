@@ -32,19 +32,33 @@ let saveFile = () => {
     const blobObject = new Blob([data], { type: 'text/plain' });
 
     let newLink = document.createElement("a");// Create an anchor tag.
-    newLink.download = 'formData.txt'; // The file to save the data.
+    newLink.download = 'textfolder/formData.txt'; // The file to save the data.
     newLink.href = URL.createObjectURL(blobObject);// Create url for file and add it to link's href.
     newLink.click();// Click to download the form data file.
     URL.revokeObjectURL(newLink.href);// Revoke the link.
 }
 
+function getRadioValue(name) {
+    var ele = document.getElementsByName(name);
+    for (i = 0; i < ele.length; i++) {
+        if (ele[i].checked)
+            return ele[i].value;
+    }
+}
 function saveDatabase() {
     const name = document.getElementById('txtName');
     const age = document.getElementById('txtAge');
     const email = document.getElementById('txtEmail');
+    const visit = getRadioValue('visit');
+    const learn = getRadioValue('learn');
+    const product = document.getElementById('product');
     const date = document.getElementById('date');
+    const expectations = getRadioValue('expectations');
+    const issues = getRadioValue('issues');
+    const reccomend = getRadioValue('reccomend');
     const msg = document.getElementById('msg');
-    params = {"name":name.value, "age":age.value, "email":email.value, "date":date.value, "rating":Rating, "msg":msg.value}
+    console.log(visit, learn, expectations, issues, reccomend);
+    params = {"name":name.value, "age":age.value, "email":email.value, "date":date.value, "rating":Rating, "msg":msg.value, "visit":visit, "learnt":learn, "product":product.value, "expectations":expectations, "issues":issues, "reccomend":reccomend}
     // xhr.send(JSON.stringify(params));
     fetch('http://127.0.0.1:5000/save', {
         method: 'POST',
