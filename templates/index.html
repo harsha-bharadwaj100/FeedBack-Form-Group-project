@@ -18,7 +18,7 @@
         <div><input type="text" id="txtAge" placeholder="Enter your age" /></div>
         <div><input type="text" id="txtEmail" placeholder="Enter your email address" /></div>
         <div>How often do you visit our website? 
-            <br><input type="radio" name="visit" value="Daily">Daily
+            <br><input type="radio" name="visit" value="Daily"><span>Daily</span>
             <br><input type="radio" name="visit" value="Weekly">Weekly
             <br><input type="radio" name="visit" value="Monthly">Monthly
             <br><input type="radio" name="visit" value="Rarely">Rarely
@@ -47,20 +47,22 @@
             <br><input type="radio" name="issues" value="Yes">Yes
             <br><input type="radio" name="issues" value="No">No
         </div>
-        <div>How likely are you to reccommend our product/services to others?(Extremely unlikely, Not likely, somewhat likely, Very likely, Extremely likely)
+        <div>How likely are you to reccommend our product/services to others?
             <br><input type="radio" name="reccomend" value="Very likely">Very likely
             <br><input type="radio" name="reccomend" value="somewhat likely">somewhat likely
             <br><input type="radio" name="reccomend" value="Not likely">Not likely
             <br>
         </div>
-        <center>Rate your experience</center>
+        <center></center>
         <br>
-        <div class="rating">
-            <div class="star" id="star1" onclick="starer(1)">&#9733</div>
-            <div class="star" id="star2" onclick="starer(2)">&#9733</div>
-            <div class="star" id="star3" onclick="starer(3)">&#9733</div>
-            <div class="star" id="star4" onclick="starer(4)">&#9733</div>
-            <div class="star" id="star5" onclick="starer(5)">&#9733</div>
+        <div class="rating-parent">Rate your experience
+            <div class="rating">
+                <div class="star" id="star1" onclick="starer(1)">&starf;</div>
+                <div class="star" id="star2" onclick="starer(2)">&starf;</div>
+                <div class="star" id="star3" onclick="starer(3)">&starf;</div>
+                <div class="star" id="star4" onclick="starer(4)">&starf;</div>
+                <div class="star" id="star5" onclick="starer(5)">&starf;</div>
+            </div>
         </div>
         <br><br>
         <div>
