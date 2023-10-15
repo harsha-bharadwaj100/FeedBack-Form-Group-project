@@ -1,4 +1,15 @@
-let rating = NaN;
+var Rating = NaN;
+starer = (rating) => {
+    console.log("running");
+    Rating = rating;
+    for (let i = 0; i < document.getElementsByClassName("star").length; i++) {
+        document.getElementsByClassName("star")[i].classList.remove("stared");
+    }
+    for (let i = 0; i < rating; i++) {
+        document.getElementsByClassName("star")[i].classList.add("stared");
+        console.log("added stared");
+    }
+}
 let saveFile = () => {
 
     // Get the data from each element on the form.
@@ -14,7 +25,7 @@ let saveFile = () => {
         'Age: ' + age.value + ' \r\n ' +
         'Email: ' + email.value + ' \r\n ' +
         'Date: ' + date.value + ' \r\n ' +
-        'Rating: ' + rating + ' \r\n ' +
+        'Rating: ' + Rating + ' \r\n ' +
         'Message: ' + msg.value;
 
     // Convert the text to BLOB.

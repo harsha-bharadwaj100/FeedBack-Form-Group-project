@@ -30,54 +30,6 @@ input[type=button] {
     padding: 7px;
 }
 
-.rate {
-    float: left;
-    height: 60;
-    padding: 5% 2%;
-}
-
-.rate:not(:checked)>input {
-    position: absolute;
-    top: -9999px;
-}
-
-.rate:not(:checked)>label {
-    float: right;
-    width: 1em;
-    overflow: hidden;
-    white-space: nowrap;
-    cursor: pointer;
-    font-size: 30px;
-    color: rgb(204, 204, 204);
-}
-
-.rate:not(:checked)>label:before {
-    content: '★ ';
-}
-
-.rate>input:checked~label {
-    color: rgb(24, 200, 21);
-}
-
-.rate:not(:checked)>label:hover,
-.rate:not(:checked)>label:hover~label {
-    color: #44a122;
-}
-
-.rate>input:checked+label:hover,
-.rate>input:checked+label:hover~label,
-.rate>input:checked~label:hover,
-.rate>input:checked~label:hover~label,
-.rate>label:hover~input:checked~label {
-    color: #135a17;
-}
-
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
-
 input[type="date"] {
     background-color: #0080ff;
     padding: 7px;
@@ -92,4 +44,31 @@ input[type="date"] {
     padding: 5px;
     cursor: pointer;
     border-radius: 3px;
+}
+
+.rating{
+    font-size: xx-large;
+    display: flex;
+    width: fit-content;
+    margin: 0% auto;
+}
+
+.star{
+    padding: 0.1em;
+    padding-right: 0.1em;
+    color: rgb(255, 255, 255);
+}
+
+.stared{
+    color: rgb(24, 200, 21);
+}
+
+
+/* select the siblings of .star element that are not after it when hovered on it and the .rating */
+.rating:hover :not(.star:hover~.star, .stared){ 
+    color: rgb(68, 161, 34);
+}
+
+.rating:hover :not(.star:hover~.star, :not(.stared)){ 
+    color: rgb(19, 90, 23);
 }
