@@ -1,6 +1,0 @@
- Name: name 
- Age: 18 
- Email: gyufuyfify@gmail.com 
- Date: 2023-09-13 
- Rating: 4 
- Message: guikfyidfkydfyidyd
