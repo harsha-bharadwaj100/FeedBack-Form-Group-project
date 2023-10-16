@@ -6,7 +6,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 app.config['SQLALCHEMY_TRACK_MADIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-class TODO(db.Model):
+class Base(db.Model):
     name = db.Column(db.String(100), primary_key=True)
     age = db.Column(db.Integer)
     email = db.Column(db.String(100))
@@ -28,7 +28,7 @@ def home():
 def add():
     data = request.get_json()
     print(data)
-    newTodo = TODO(name=data['name'],
+    new = Base(name=data['name'],
                     age=data['age'],
                     email=data['email'],
                     visit_frequency=data['visit'],
@@ -40,14 +40,9 @@ def add():
                     reccomendability = data['reccomend'],
                     rating=data['rating'],
                     msg=data['msg'])
-    db.session.add(newTodo)
+    db.session.add(new)
     db.session.commit()
-    return "hi"
-
-    # newTodo = TODO(title=title, complete=False)
-    # db.session.add(newTodo)
-    # db.session.commit()
-    
+    return "hi"    
 
 if __name__ == "__main__":
     with app.app_context():

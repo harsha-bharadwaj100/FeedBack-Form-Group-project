@@ -16,7 +16,13 @@ let saveFile = () => {
     const name = document.getElementById('txtName');
     const age = document.getElementById('txtAge');
     const email = document.getElementById('txtEmail');
+    const visit = getRadioValue('visit');
+    const learn = getRadioValue('learn');
+    const product = document.getElementById('product');
     const date = document.getElementById('date');
+    const expectations = getRadioValue('expectations');
+    const issues = getRadioValue('issues');
+    const reccomend = getRadioValue('reccomend');
     const msg = document.getElementById('msg');
 
     // This variable stores all the data.
@@ -24,6 +30,12 @@ let saveFile = () => {
         '\r Name: ' + name.value + ' \r\n ' +
         'Age: ' + age.value + ' \r\n ' +
         'Email: ' + email.value + ' \r\n ' +
+        'visit: ' + visit.value + ' \r\n ' +
+        'learn: ' + learn.value + ' \r\n ' +
+        'product: ' + product.value + ' \r\n ' +
+        'expectations: ' + expectations.value + ' \r\n ' +
+        'issues: ' + issues.value + ' \r\n ' +
+        'reccomend: ' + reccomend.value + ' \r\n ' +
         'Date: ' + date.value + ' \r\n ' +
         'Rating: ' + Rating + ' \r\n ' +
         'Message: ' + msg.value;

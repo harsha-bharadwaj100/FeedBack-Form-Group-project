@@ -95,3 +95,13 @@ input[type=radio]{
 .rating:hover :not(.star:hover~.star, :not(.stared)){ 
     color: rgb(19, 90, 23);
 }
+
+#bt{
+    border-radius: 1em;
+    border: #ccc;
+    background-image: linear-gradient(pink, lightblue);
+}
+
+#bt:hover{
+    box-shadow: 0px 0px 8px 2px #888888;
+}
